@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title class="logo-title">Visai</title>
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- NAVBAR (hidden initially) -->
+<nav class="navbar">
+  <div class="nav-left">
+    <img src="logo.png" class="nav-logo" />
+    <span class="logo-text">Visai</span>
+  </div>
+
+  <div class="store-buttons small">
+    <a href="https://play.google.com/store/apps/details?id=org.dckap.visai&pcampaignid=web_share">
+      <img src="play-store.svg" alt="Get it on Google Play">
+    </a>
+
+    <a href="https://apps.apple.com/in/app/visai-app/id6759800070">
+      <img src="app-store.svg" alt="Download on App Store">
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+
+  <div class="hero-container">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+        <img src="logo.png" class="hero-logo"/>
+      <h1 class="hero-title">
+  Master Tamil Typing <br />
+  <span>with real-time feedback</span>
+</h1>
+
+      <p>
+        Practice smarter with instant corrections, gamified lessons,
+        and a beautiful typing experience designed for Tamil learners.
+      </p>
+
+      <!-- BUTTONS -->
+      <div class="store-buttons large">
+  <a href="https://play.google.com/store/apps/details?id=org.dckap.visai&pcampaignid=web_share">
+    <img src="play-store.svg" alt="Get it on Google Play">
+  </a>
+
+  <a href="https://apps.apple.com/in/app/visai-app/id6759800070">
+    <img src="app-store.svg" alt="Download on App Store">
+  </a>
+</div>
+    </div>
+
+    <!-- RIGHT (ANIMATION) -->
+    <div class="hero-right">
+
+      <img src="screen-1.png" class="phone p1"/>
+      <img src="screen-2.png" class="phone p2"/>
+      <img src="screen-3.png" class="phone p3"/>
+
+    </div>
+
+  </div>
+</section>
+<section class="why">
+
+  <h2>Why choose Visai?</h2>
+
+  <div class="why-grid">
+
+    <div class="why-card">
+      <h3>Instant Feedback</h3>
+      <p>Get real-time corrections as you type and improve faster with every keystroke.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>Built for Tamil</h3>
+      <p>Designed specifically for Tamil learners with accurate typing patterns.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>Practice Anywhere</h3>
+      <p>Learn anytime, anywhere with a smooth and responsive mobile experience.</p>
+    </div>
+
+  </div>
+
+</section>
+<section class="social-proof">
+
+  <!-- <div class="stats">
+
+    <div class="stat">
+      <h3>50K+</h3>
+      <p>Active Users</p>
+    </div>
+
+    <div class="stat">
+      <h3>1M+</h3>
+      <p>Words Typed</p>
+    </div>
+
+    <div class="stat">
+      <h3>4.8★</h3>
+      <p>App Rating</p>
+    </div>
+
+  </div> -->
+
+</section>
+<section class="testimonials">
+
+  <h2>What early users say</h2>
+  <p class="testimonial-sub">
+    Real feedback from people using Visai to improve their Tamil typing.
+  </p>
+
+  <div class="testimonial-grid">
+
+    <div class="card">
+      <p>“Visai made Tamil typing so easy! I improved within days.”</p>
+      <h4>Arun Kumar</h4>
+      <span>Tamil Learner</span>
+    </div>
+
+    <div class="card">
+      <p>“Clean UI and very easy to use. Smooth experience overall.”</p>
+      <h4>Priya S</h4>
+      <span>Student</span>
+    </div>
+
+    <div class="card">
+      <p>“Simple and effective. Great for daily practice.”</p>
+      <h4>Karthik R</h4>
+      <span>Developer</span>
+    </div>
+
+  </div>
+
+</section>
+<section class="showcase">
+
+  <h2>See Visai in action</h2>
+  <p class="showcase-sub">
+    A simple and beautiful way to practice Tamil typing with real-time feedback.
+  </p>
+
+  <div class="screens">
+
+    <img src="screen-1.png" />
+    <img src="screen-2.png" />
+    <img src="screen-3.png" />
+    <img src="screen-4.png" />
+    <img src="screen-5.png" />
+
+  </div>
+
+</section>
+<section class="cta">
+
+  <h2>Start mastering Tamil typing today</h2>
+  <p>Join thousands of learners improving their typing speed with Visai.</p>
+
+  <div class="store-buttons large">
+    <a href="https://play.google.com/store/apps/details?id=org.dckap.visai&pcampaignid=web_share">
+      <img src="play-store.svg" alt="Get it on Google Play">
+    </a>
+
+    <a href="https://apps.apple.com/in/app/visai-app/id6759800070">
+      <img src="app-store.svg" alt="Download on App Store">
+    </a>
+  </div>
+
+</section>
+
+<!-- SCROLL SCRIPT -->
+<script>
+  const navbar = document.querySelector(".navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 80) {
+      navbar.classList.add("show");
+    } else {
+      navbar.classList.remove("show");
+    }
+  });
+    const slides = document.querySelectorAll(".testimonials .slide");
+  const dots = document.querySelectorAll(".testimonials .dot");
+
+  let index = 0;
+
+  function showSlide(i) {
+    slides.forEach((s, idx) => {
+      s.classList.remove("active");
+      dots[idx].classList.remove("active");
+    });
+
+    slides[i].classList.add("active");
+    dots[i].classList.add("active");
+  }
+
+  function nextSlide() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  setInterval(nextSlide, 4000);
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      index = i;
+      showSlide(index);
+    });
+  });
+</script>
+<a href="https://kothai.org/" class="floating-btn">
+  Kothai
+</a>
+</body>
+</html>
