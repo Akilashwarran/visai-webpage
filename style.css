@@ -556,4 +556,5 @@ body {
 .footer-right a{
   font-size: 14px;
   color: #666;
+   text-decoration: none;
 }
