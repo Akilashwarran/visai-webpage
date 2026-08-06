@@ -287,13 +287,14 @@ body {
 /* GRID (auto alignment fix) */
 .why-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
 /* CARD */
 .why-card {
   padding: 30px;
+  border: 1px solid rgba(0,0,0,0.05);
   border-radius: 18px;
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
@@ -305,7 +306,7 @@ body {
 
 /* HOVER EFFECT */
 .why-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px) scale(1.02);
   box-shadow: 0 25px 50px rgba(0,0,0,0.12);
 }
 
