@@ -164,54 +164,61 @@
   </div>
 
 </section> -->
-<section class="demo">
+<section class="visai-demo">
 
-  <h2 class="demo-title">See Visai in Action</h2>
+  <h2>See Visai in Action</h2>
+  <p class="subheading">
+    Experience how Visai helps you improve typing speed, accuracy, and consistency.
+  </p>
 
-  <div class="demo-wrapper">
+  <div class="slider">
 
-    <!-- LEFT TEXT GRID -->
-    <div class="demo-left">
+    <!-- LEFT ARROW -->
+    <button class="arrow left">&#10094;</button>
 
-      <div class="demo-point active" data-index="0">
-        <h3>Real-time Feedback</h3>
-        <p>See mistakes instantly as you type and improve faster.</p>
+    <!-- SLIDES -->
+    <div class="slides">
+
+      <div class="slide active">
+        <div class="content">
+          <div class="image">
+            <img src="screen-1.png">
+          </div>
+          <div class="text">
+            <h3>Real-time Feedback</h3>
+            <p>Get instant corrections while typing.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="demo-point" data-index="1">
-        <h3>Track Performance</h3>
-        <p>Monitor WPM, accuracy, and typing time in real-time.</p>
+      <div class="slide">
+        <div class="content reverse">
+          <div class="image">
+            <img src="screen-2.png">
+          </div>
+          <div class="text">
+            <h3>Track Performance</h3>
+            <p>Monitor WPM and accuracy live.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="demo-point" data-index="2">
-        <h3>Gamified Challenges</h3>
-        <p>Earn XP and complete engaging challenges.</p>
-      </div>
-
-      <div class="demo-point" data-index="3">
-        <h3>Daily Streaks</h3>
-        <p>Stay consistent and build habits with streaks.</p>
-      </div>
-
-      <div class="demo-point" data-index="4">
-        <h3>Detailed Results</h3>
-        <p>Analyze progress and improve over time.</p>
+      <div class="slide">
+        <div class="content">
+          <div class="image">
+            <img src="screen-3.png">
+          </div>
+          <div class="text">
+            <h3>Gamified Challenges</h3>
+            <p>Stay engaged with rewards.</p>
+          </div>
+        </div>
       </div>
 
     </div>
 
-    <!-- RIGHT CAROUSEL -->
-    <div class="demo-right">
-
-      <div class="carousel">
-        <img src="screen-6.png" class="active">
-        <img src="screen-7.png">
-        <img src="screen-8.png">
-        <img src="screen-6.png">
-        <img src="screen-7.png">
-      </div>
-
-    </div>
+    <!-- RIGHT ARROW -->
+    <button class="arrow right">&#10095;</button>
 
   </div>
 
@@ -320,33 +327,49 @@
   });
 
   // ---------------------------------
-const points = document.querySelectorAll(".demo-point");
-const images = document.querySelectorAll(".carousel img");
+(function () {
+  const slides = document.querySelectorAll(".slide");
+  const nextBtn = document.querySelector(".arrow.right");
+  const prevBtn = document.querySelector(".arrow.left");
+  const slider = document.querySelector(".slider");
 
-let row = 0;
+  let current = 0;
+  let timer;
 
-function showSlide(i) {
-  points.forEach(p => p.classList.remove("active"));
-  images.forEach(img => img.classList.remove("active"));
+  function show(i) {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
 
-  points[i].classList.add("active");
-  images[i].classList.add("active");
-}
+  function start() {
+    timer = setInterval(() => {
+      current = (current + 1) % slides.length;
+      show(current);
+    }, 3000);
+  }
 
-function autoSlide() {
-  row = (row + 1) % images.length;
-  showSlide(row);
-}
+  function stop() {
+    clearInterval(timer);
+  }
 
-setInterval(autoSlide, 2000);
-
-/* Click sync */
-points.forEach(point => {
-  point.addEventListener("click", () => {
-    row = point.dataset.row;
-    showSlide(row);
+  nextBtn.addEventListener("click", () => {
+    current = (current + 1) % slides.length;
+    show(current);
+    stop(); start();
   });
-});
+
+  prevBtn.addEventListener("click", () => {
+    current = (current - 1 + slides.length) % slides.length;
+    show(current);
+    stop(); start();
+  });
+
+  slider.addEventListener("mouseenter", stop);
+  slider.addEventListener("mouseleave", start);
+
+  show(current);
+  start();
+})();
 </script>
 <a href="https://kothai.org/" class="floating-btn">
   Kothai
