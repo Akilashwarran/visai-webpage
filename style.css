@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +13,7 @@
 body {
   background: linear-gradient(to right, #f3e8ff, #ffffff);
   color: #111;
+  font-family: 'Inter', sans-serif;
 }
 
 /* NAVBAR FULL WIDTH */
@@ -380,44 +386,219 @@ body {
   color: #666;
 } */
 /* Testimonials */
+/* =========================================
+   TESTIMONIALS
+========================================= */
+
 .testimonials {
   padding: 100px 20px;
   text-align: center;
 
-  max-width: 1200px;   
-  margin: 0 auto;      
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.testimonials h2 {
+  margin: 0 0 10px;
+
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+
+  color: #111827;
+}
+
+.testimonials > p {
+  max-width: 650px;
+  margin: 0 auto;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: #667085;
+}
+
+
+/* =========================================
+   TESTIMONIAL GRID
+========================================= */
+
 .testimonial-grid {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+
+  gap: 24px;
+
   margin-top: 50px;
 }
 
+
+/* =========================================
+   CARD
+========================================= */
+
 .card {
-  padding: 25px;
-  border-radius: 20px;
+  position: relative;
 
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
+  min-height: 150px;
 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  padding: 28px;
 
   text-align: left;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(15, 23, 42, 0.06);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.06),
+    0 5px 15px rgba(15, 23, 42, 0.03);
 }
+
+
+/* =========================================
+   QUOTE
+========================================= */
 
 .card p {
-  margin-bottom: 15px;
+  margin: 0 0 22px;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: #374151;
 }
 
-.card span {
-  font-size: 13px;
-  color: #777;
+
+/* =========================================
+   QUOTE MARK
+========================================= */
+
+.card::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 10px;
+  right: 20px;
+
+  font-family: Georgia, serif;
+
+  font-size: 46px;
+  line-height: 1;
+
+  color: #ede9fe;
+
+  pointer-events: none;
 }
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.card h4 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+
+/* =========================================
+   OPTIONAL ROLE
+========================================= */
+
+.card span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 13px;
+
+  color: #667085;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .testimonial-grid {
+    gap: 18px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 768px) {
+
+  .testimonials {
+    padding: 70px 20px;
+  }
+
+  .testimonials h2 {
+    font-size: 30px;
+  }
+
   .testimonial-grid {
     grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    margin-top: 35px;
   }
+
+  .card {
+    min-height: auto;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+  .testimonials h2 {
+    font-size: 27px;
+  }
+
+  .testimonials > p {
+    font-size: 14px;
+  }
+
+  .card {
+    padding: 23px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
 }
 /* .showcase {
   padding: 100px 40px;
