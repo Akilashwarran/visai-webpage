@@ -1,414 +1,581 @@
+/* =========================================================
+   VISAI LANDING PAGE
+   Clean responsive CSS
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL
+========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-* {
-  font-family: 'Inter', sans-serif;
-}
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: linear-gradient(to right, #f3e8ff, #ffffff);
   color: #111;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
-/* NAVBAR FULL WIDTH */
+img {
+  max-width: 100%;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+========================================================= */
+
 .navbar {
-  display: flex;                /* IMPORTANT */
-  justify-content: space-between;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
   padding: 6px 20px;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 1000;
 
   transform: translateY(-100%);
   transition: transform 0.3s ease;
-
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
 }
-/* visible state */
+
 .navbar.show {
   transform: translateY(0);
 }
 
-/* LEFT SIDE (LOGO + TEXT) */
+
+/* LEFT */
+
 .nav-left {
   display: flex;
   align-items: center;
+
   gap: 10px;
+
   padding-left: 20px;
 }
 
 .nav-logo {
   width: 40px;
   height: 40px;
+
   object-fit: contain;
+
   border-radius: 8px;
 }
+
 .logo-text {
-  font-weight: 700;
   font-size: 20px;
+  font-weight: 700;
 
-  background: linear-gradient(135deg, #7b61ff, #ff6ec7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+    135deg,
+    #7b61ff,
+    #ff6ec7
+  );
 
-  /* for better compatibility */
   background-clip: text;
+  -webkit-background-clip: text;
+
   color: transparent;
-}
-.nav-title {
-  color: #111;
+  -webkit-text-fill-color: transparent;
 }
 
 
+/* RIGHT */
 
 .nav-right {
   display: flex;
   align-items: center;
+
   gap: 14px;
 }
 
-/* BASE BUTTON */
+
+/* =========================================================
+   3. STORE BUTTONS
+========================================================= */
+
+.store-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
 .store-btn {
   display: flex;
   align-items: center;
+
   gap: 10px;
 
-  /* padding: 50px 8px; */
+  padding: 10px 14px;
+
   border-radius: 12px;
 
   font-size: 14px;
   font-weight: 500;
+
   text-decoration: none;
 
   white-space: nowrap;
-  transition: all 0.2s ease;
+
+  transition: transform 0.2s ease,
+              background 0.2s ease;
 }
 
-/* GOOGLE PLAY */
-.google {
-  background: black;
-  color: white;
-}
-
-.google:hover {
-  transform: translateY(-2px);
-}
-
-/* APPLE */
-.apple {
-  border: 1px solid #ddd;
-  color: #111;
-}
-
-.apple:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* ICON */
-.icon {
+.store-btn .icon {
   font-size: 16px;
 }
 
 
+/* GOOGLE */
 
-/* HERO */
-.hero {
-  padding: 80px 20px;
-   position: relative;
-  padding: 120px 40px;
+.store-btn.google {
+  background: #000;
+  color: #fff;
 }
 
-.hero-logo {
-  width: 90px;          /* increase size (adjust as needed) */
-  height: 90px;
-  object-fit: cover;
-
-  border-radius: 16px;  /* rounded corners */
-  
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* soft shadow */
-
-  transition: all 0.3s ease;
+.store-btn.google:hover {
+  transform: translateY(-2px);
 }
 
-/* Optional: subtle hover effect */
-.hero-logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-.hero-logo img {
-  width: 50px;     /* adjust this */
-  height: auto;
+
+/* APPLE */
+
+.store-btn.apple {
+  border: 1px solid #ddd;
+  background: #fff;
+
+  color: #111;
 }
 
-.logo img {
-  width: 32px;     /* navbar logo */
-  height: auto;
-}
-.hero-container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 2%;
+.store-btn.apple:hover {
+  background: #f8f8f8;
 }
 
-/* LEFT */
-.hero-left h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-}
 
-.hero-left h1 span {
-  color: #9333ea;
-}
+/* STORE IMAGE SIZES */
 
-.hero-left p {
-  color: #555;
-  margin-bottom: 30px;
-  max-width: 450px;
-}
-.hero-title {
-  font-size: 48px;
-  font-weight: 700;
-  color: #1f2937; /* softer than pure black */
-  line-height: 1.2;
-}
-
-.hero-title span {
-  background: linear-gradient(90deg, #7c3aed, #ec4899);
-
-  background-clip: text;              /* standard */
-  -webkit-background-clip: text;      /* chrome/safari */
-
-  color: transparent;                 /* fallback */
-  -webkit-text-fill-color: transparent;
-}
-
-/* BUTTONS */
-.store-buttons {
-  display: flex;
-  align-items: center; /* aligns vertically */
-  gap: 20px;
-}
-
-/* Normalize BOTH images */
 .store-buttons img {
-  height: 10px;
   width: auto;
+  height: auto;
+
   object-fit: contain;
 }
 
-/* Slight tweak ONLY for Google Play */
-.store-buttons img:first-child {
-  transform: scale(1.00);
+.store-buttons.small img {
+  height: 40px;
 }
 
-/* RIGHT (ANIMATION) */
+.store-buttons.large img {
+  height: 60px;
+}
+
+
+/* =========================================================
+   4. HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  padding: 120px 40px;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 40px;
+}
+
+
+/* HERO LEFT */
+
+.hero-left {
+  min-width: 0;
+}
+
+.hero-logo {
+  width: 90px;
+  height: 90px;
+
+  object-fit: cover;
+
+  margin-bottom: 25px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+.hero-left h1,
+.hero-title {
+  margin-bottom: 20px;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+
+  color: #1f2937;
+}
+
+.hero-title span,
+.hero-left h1 span {
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #ec4899
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.hero-left p {
+  max-width: 450px;
+
+  margin-bottom: 30px;
+
+  color: #555;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-left .store-buttons {
+  justify-content: flex-start;
+}
+
+
+/* =========================================================
+   5. HERO PHONE ANIMATION
+========================================================= */
+
 .hero-right {
   position: relative;
+
+  width: 100%;
   height: 400px;
 }
+
+.phone {
+  position: absolute;
+
+  width: 200px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* PHONE POSITIONS */
+
+.p1 {
+  left: 0;
+  top: 50px;
+
+  animation:
+    float 4s ease-in-out infinite;
+}
+
+.p2 {
+  left: 120px;
+  top: 0;
+
+  z-index: 2;
+
+  animation:
+    float 5s ease-in-out infinite;
+}
+
+.p3 {
+  left: 240px;
+  top: 60px;
+
+  animation:
+    float 6s ease-in-out infinite;
+}
+
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   6. FEATURES
+========================================================= */
+
 .features {
-  padding: 100px 40px;
+  width: 100%;
   max-width: 1100px;
-  margin: auto;
+
+  margin: 0 auto;
+
+  padding: 100px 40px;
 }
 
 .features h2 {
-  text-align: center;
   margin-bottom: 60px;
+
+  text-align: center;
+
   font-size: 32px;
 }
 
 .feature {
   display: flex;
   align-items: center;
-  gap: 40px;
-  margin-bottom: 80px;
-}
 
-.feature img {
-  width: 220px;
-  border-radius: 20px;
+  gap: 40px;
+
+  margin-bottom: 80px;
 }
 
 .feature.reverse {
   flex-direction: row-reverse;
 }
 
-.phone {
-  position: absolute;
-  width: 200px;
+.feature img {
+  width: 220px;
+
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-/* STACKED LOOK */
-.p1 {
-  left: 0;
-  top: 50px;
-  animation: float 4s ease-in-out infinite;
-}
 
-.p2 {
-  left: 120px;
-  top: 0;
-  z-index: 2;
-  animation: float 5s ease-in-out infinite;
-}
+/* =========================================================
+   7. WHY VISAI
+========================================================= */
 
-.p3 {
-  left: 240px;
-  top: 60px;
-  animation: float 6s ease-in-out infinite;
-}
-
-/* SECTION */
 .why {
   padding: 100px 20px;
-  background: linear-gradient(180deg, #f7f6ff, #ffffff);
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7f6ff,
+      #ffffff
+    );
+
   text-align: center;
 }
 
-/* TITLE */
 .why-title {
+  margin-bottom: 60px;
+
   font-size: 34px;
   font-weight: 700;
-  margin-bottom: 60px;
+
+  line-height: 1.2;
 }
 
-/* GRID (auto alignment fix) */
+
+/* GRID */
+
 .why-grid {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 30px;
 }
 
+
 /* CARD */
+
 .why-card {
-  padding: 30px;
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 18px;
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
-  text-align: left;
-  transition: all 0.3s ease;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
   position: relative;
+
+  padding: 30px;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.05);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  text-align: left;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* HOVER EFFECT */
 .why-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.12);
 }
+
 
 /* ICON */
-.icon {
-  font-size: 28px;
+
+.why-card .icon {
   margin-bottom: 12px;
+
+  font-size: 28px;
 }
 
+
 /* TEXT */
+
 .why-card h3 {
   margin-bottom: 10px;
+
   font-size: 18px;
 }
 
 .why-card p {
   color: #666;
+
   font-size: 14px;
+
   line-height: 1.5;
 }
 
-/* LIST STYLE */
 .why-card ul {
   padding-left: 18px;
+
   color: #666;
+
   font-size: 14px;
+
   line-height: 1.6;
 }
 
-/* HIGHLIGHT CARD */
+
+/* HIGHLIGHT */
+
 .why-card.highlight {
-  background: linear-gradient(135deg, #7b61ff, #ff6ec7);
-  color: white;
+  background:
+    linear-gradient(
+      135deg,
+      #7b61ff,
+      #ff6ec7
+    );
+
+  color: #fff;
 }
 
-.why-card.highlight p {
-  color: rgba(255,255,255,0.9);
-}
-/* FLOAT ANIMATION */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
+.why-card.highlight p,
+.why-card.highlight ul {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* .social-proof {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  padding: 100px 40px;
-  gap: 60px;
-}
-
-/* STATS */
-/* .stats {
-  display: flex;
-  gap: 60px;
-}
-
-.stat h3 {
-  font-size: 32px;
-  font-weight: 700;
-
-  background: linear-gradient(90deg, #7c3aed, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.stat p {
-  color: #666;
-} */
-/* Testimonials */
-/* =========================================
-   TESTIMONIALS
-========================================= */
+/* =========================================================
+   8. TESTIMONIALS
+========================================================= */
 
 .testimonials {
-  padding: 100px 20px;
-  text-align: center;
-
+  width: 100%;
   max-width: 1200px;
+
   margin: 0 auto;
+
+  padding: 100px 20px;
+
+  text-align: center;
 }
 
-
-/* =========================================
-   HEADING
-========================================= */
-
 .testimonials h2 {
-  margin: 0 0 10px;
+  margin-bottom: 10px;
 
   font-size: 36px;
   font-weight: 700;
+
   line-height: 1.2;
+
   letter-spacing: -0.8px;
 
   color: #111827;
@@ -416,23 +583,24 @@ body {
 
 .testimonials > p {
   max-width: 650px;
+
   margin: 0 auto;
 
   font-size: 15px;
+
   line-height: 1.6;
 
   color: #667085;
 }
 
 
-/* =========================================
-   TESTIMONIAL GRID
-========================================= */
+/* GRID */
 
 .testimonial-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
 
   gap: 24px;
 
@@ -440,9 +608,7 @@ body {
 }
 
 
-/* =========================================
-   CARD
-========================================= */
+/* CARD */
 
 .card {
   position: relative;
@@ -453,9 +619,10 @@ body {
 
   text-align: left;
 
-  background: #ffffff;
+  background: #fff;
 
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border:
+    1px solid rgba(15, 23, 42, 0.06);
 
   border-radius: 22px;
 
@@ -464,24 +631,15 @@ body {
     0 5px 15px rgba(15, 23, 42, 0.03);
 }
 
-
-/* =========================================
-   QUOTE
-========================================= */
-
 .card p {
-  margin: 0 0 22px;
+  margin-bottom: 22px;
 
   font-size: 15px;
+
   line-height: 1.6;
 
   color: #374151;
 }
-
-
-/* =========================================
-   QUOTE MARK
-========================================= */
 
 .card::before {
   content: "“";
@@ -491,9 +649,8 @@ body {
   top: 10px;
   right: 20px;
 
-  font-family: Georgia, serif;
-
   font-size: 46px;
+
   line-height: 1;
 
   color: #ede9fe;
@@ -501,24 +658,12 @@ body {
   pointer-events: none;
 }
 
-
-/* =========================================
-   NAME
-========================================= */
-
 .card h4 {
-  margin: 0;
-
   font-size: 15px;
   font-weight: 700;
 
   color: #111827;
 }
-
-
-/* =========================================
-   OPTIONAL ROLE
-========================================= */
 
 .card span {
   display: block;
@@ -531,151 +676,31 @@ body {
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-  .testimonial-grid {
-    gap: 18px;
-  }
-
-  .card {
-    padding: 24px;
-  }
-
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-  .testimonials {
-    padding: 70px 20px;
-  }
-
-  .testimonials h2 {
-    font-size: 30px;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-
-    gap: 18px;
-
-    margin-top: 35px;
-  }
-
-  .card {
-    min-height: auto;
-  }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 420px) {
-
-  .testimonials h2 {
-    font-size: 27px;
-  }
-
-  .testimonials > p {
-    font-size: 14px;
-  }
-
-  .card {
-    padding: 23px;
-  }
-
-  .card p {
-    font-size: 14px;
-  }
-
-}
-/* .showcase {
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.showcase h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.showcase-sub {
-  color: #666;
-  margin-bottom: 50px;
-}
-
-/* SCREENS ROW */
-/* .screens {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* IMAGES */
-/* .screens img {
-  width: 180px;
-  border-radius: 20px;
-
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-
-  transition: all 0.3s ease;
-} */
-
-/* HOVER EFFECT */
-/* .screens img:hover {
-  transform: translateY(-10px) scale(1.05);
-}
-.screens img:nth-child(2) {
-  transform: translateY(20px);
-}
-
-.screens img:nth-child(4) {
-  transform: translateY(20px);
-} */
-/* @media (max-width: 768px) {
-  .screens img {
-    width: 140px;
-  }
-} */ 
-/* SECTION */
-/* SECTION */
-/* =========================================
-   VISAI DEMO SECTION
-========================================= */
+/* =========================================================
+   9. VISAI SHOWCASE
+========================================================= */
 
 .visai-demo {
   padding: 100px 20px;
+
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    #f8fafc 0%,
-    #ffffff 100%
-  );
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f8fafc 0%,
+      #ffffff 100%
+    );
 }
 
-
-/* =========================================
-   SECTION HEADING
-========================================= */
-
 .visai-demo h2 {
-  margin: 0 0 12px;
+  margin-bottom: 12px;
 
   font-size: 36px;
   font-weight: 700;
+
   line-height: 1.2;
+
   letter-spacing: -0.8px;
 
   color: #111827;
@@ -687,24 +712,25 @@ body {
   margin: 0 auto 55px;
 
   font-size: 15px;
+
   line-height: 1.6;
 
   color: #667085;
 }
 
 
-/* =========================================
-   SLIDER CONTAINER
-========================================= */
+/* SLIDER */
 
 .slider {
   position: relative;
 
   width: 100%;
   max-width: 1000px;
+
   min-height: 420px;
 
   margin: 0 auto;
+
   padding: 35px 70px;
 
   display: flex;
@@ -712,9 +738,10 @@ body {
 
   border-radius: 28px;
 
-  background: #ffffff;
+  background: #fff;
 
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  border:
+    1px solid rgba(15, 23, 42, 0.06);
 
   box-shadow:
     0 35px 80px rgba(15, 23, 42, 0.08),
@@ -724,20 +751,16 @@ body {
 }
 
 
-/* =========================================
-   SLIDES
-========================================= */
+/* SLIDES */
 
 .slides {
   width: 100%;
-  height: 100%;
 }
 
 .slide {
   display: none;
 
   width: 100%;
-  height: 100%;
 }
 
 .slide.active {
@@ -745,15 +768,15 @@ body {
 }
 
 
-/* =========================================
-   SLIDE CONTENT
-========================================= */
+/* SLIDE CONTENT */
 
 .content {
   width: 100%;
+
   min-height: 350px;
 
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 
@@ -761,9 +784,7 @@ body {
 }
 
 
-/* =========================================
-   TEXT
-========================================= */
+/* TEXT */
 
 .text {
   flex: 1;
@@ -772,9 +793,6 @@ body {
 
   text-align: left;
 }
-
-
-/* VISAI label */
 
 .text::before {
   content: "VISAI";
@@ -785,6 +803,7 @@ body {
 
   font-size: 11px;
   font-weight: 700;
+
   line-height: 1;
 
   letter-spacing: 1.6px;
@@ -792,14 +811,12 @@ body {
   color: #7c3aed;
 }
 
-
-/* Heading */
-
 .text h3 {
-  margin: 0 0 16px;
+  margin-bottom: 16px;
 
   font-size: 30px;
   font-weight: 700;
+
   line-height: 1.2;
 
   letter-spacing: -0.7px;
@@ -807,80 +824,72 @@ body {
   color: #111827;
 }
 
-
-/* Description */
-
 .text p {
-  margin: 0;
-
   max-width: 450px;
 
   font-size: 16px;
+
   line-height: 1.7;
 
   color: #667085;
 }
 
 
-/* =========================================
-   IMAGE
-========================================= */
+/* IMAGE */
 
 .image {
   flex: 0 0 300px;
 
   width: 300px;
   height: 360px;
-  border-radius: 20px;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  /* No extra background/card */
   background: transparent;
 
-  box-shadow: none;
+  border-radius: 20px;
 }
-
-
-/* Actual screenshot */
 
 .image img {
   display: block;
 
   width: 300px;
   height: 360px;
-  
+
   object-fit: contain;
 
   border-radius: 28px;
 
   filter:
-    drop-shadow(0 20px 30px rgba(15, 23, 42, 0.12));
+    drop-shadow(
+      0 20px 30px rgba(15, 23, 42, 0.12)
+    );
 
   transition:
     transform 0.4s ease,
     filter 0.4s ease;
 }
 
-
-/* Slight floating effect */
-
 .slide.active .image img {
   transform: translateY(-4px);
 }
 
 .slide.active .image:hover img {
-  transform: translateY(-8px) scale(1.015);
+  transform:
+    translateY(-8px)
+    scale(1.015);
 
   filter:
-    drop-shadow(0 25px 35px rgba(15, 23, 42, 0.16));
+    drop-shadow(
+      0 25px 35px rgba(15, 23, 42, 0.16)
+    );
 }
 
 
-/* =========================================
-   ARROWS
-========================================= */
+/* ARROWS */
 
 .arrow {
   position: absolute;
@@ -890,22 +899,26 @@ body {
   width: 44px;
   height: 44px;
 
+  padding: 0;
+
   transform: translateY(-50%);
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  padding: 0;
-
   border-radius: 50%;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  border:
+    1px solid rgba(15, 23, 42, 0.08);
 
   background: rgba(255, 255, 255, 0.96);
 
   color: #111827;
 
   font-size: 18px;
+
   line-height: 1;
 
   cursor: pointer;
@@ -913,59 +926,42 @@ body {
   box-shadow:
     0 8px 20px rgba(15, 23, 42, 0.10);
 
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
-
   z-index: 10;
 }
-
-
-/* Left arrow */
 
 .arrow.left {
   left: 18px;
 }
 
-
-/* Right arrow */
-
 .arrow.right {
   right: 18px;
 }
 
-
-/* Hover */
-
 .arrow:hover {
-  transform: translateY(-50%) scale(1.08);
+  transform:
+    translateY(-50%)
+    scale(1.08);
 
   background: #111827;
-  color: #ffffff;
 
-  box-shadow:
-    0 12px 25px rgba(15, 23, 42, 0.18);
+  color: #fff;
 }
-
-
-/* Click */
 
 .arrow:active {
-  transform: translateY(-50%) scale(0.94);
+  transform:
+    translateY(-50%)
+    scale(0.94);
 }
 
 
-/* =========================================
-   OPTIONAL SLIDE FADE
-========================================= */
+/* SLIDE ANIMATION */
 
 .slide {
   animation: slideFade 0.45s ease;
 }
 
 @keyframes slideFade {
+
   from {
     opacity: 0;
     transform: translateX(10px);
@@ -975,329 +971,249 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+/* =========================================================
+   10. CTA
+========================================================= */
 
-@media (max-width: 900px) {
-
-  .slider {
-    padding: 35px 55px;
-  }
-
-  .content {
-    gap: 25px;
-  }
-
-  .image {
-    flex: 0 0 260px;
-
-    width: 260px;
-    height: 330px;
-  }
-
-  .image img {
-    width: 260px;
-    height: 330px;
-  }
-
-  .text h3 {
-    font-size: 27px;
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-  .visai-demo {
-    padding: 70px 16px;
-  }
-
-
-  .visai-demo h2 {
-    font-size: 28px;
-  }
-
-
-  .subheading {
-    margin-bottom: 35px;
-
-    font-size: 14px;
-  }
-
-
-  .slider {
-    min-height: 650px;
-
-    padding: 35px 35px;
-
-    border-radius: 24px;
-  }
-
-
-  .content {
-    min-height: 580px;
-
-    flex-direction: column-reverse;
-
-    justify-content: center;
-
-    gap: 25px;
-  }
-
-
-  .text {
-    width: 100%;
-
-    max-width: 100%;
-
-    text-align: center;
-  }
-
-
-  .text::before {
-    margin-bottom: 12px;
-  }
-
-
-  .text h3 {
-    font-size: 24px;
-
-    letter-spacing: -0.4px;
-  }
-
-
-  .text p {
-    max-width: 100%;
-
-    font-size: 15px;
-  }
-
-
-  .image {
-    flex: none;
-    
-    width: 230px;
-    height: 300px;
-  }
-
-
-  .image img {
-    width: 230px;
-    height: 300px;
-    border-radius: 20px;
-  }
-
-
-  .arrow {
-    width: 40px;
-    height: 40px;
-
-    font-size: 16px;
-  }
-
-
-  .arrow.left {
-    left: 10px;
-  }
-
-
-  .arrow.right {
-    right: 10px;
-  }
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 420px) {
-
-  .slider {
-    padding: 30px 30px;
-  }
-
-
-  .content {
-    gap: 20px;
-  }
-
-
-  .image {
-    width: 200px;
-    height: 270px;
-  }
-
-
-  .image img {
-    width: 200px;
-    height: 270px;
-  }
-
-
-  .text h3 {
-    font-size: 22px;
-  }
-
-
-  .text p {
-    font-size: 14px;
-  }
-}
-/* MOBILE */
-@media (max-width: 900px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-right {
-    margin-top: 50px;
-    height: 300px;
-  }
-
-  .phone {
-    width: 140px;
-  }
-}
-@media (max-width: 768px) {
-  .store-btn span:last-child {
-    display: none;
-  }
-
-  .store-btn {
-    padding: 10px;
-  }
-}
 .cta {
   padding: 100px 40px;
+
   text-align: center;
 
-  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #ec4899
+    );
+
   color: #fff;
 }
 
 .cta h2 {
-  font-size: 34px;
   margin-bottom: 10px;
+
+  font-size: 34px;
+
+  line-height: 1.25;
 }
 
 .cta p {
-  margin-bottom: 40px;
+  max-width: 650px;
+
+  margin: 0 auto 40px;
+
+  line-height: 1.6;
+
   opacity: 0.9;
 }
 
-/* reuse your store buttons */
 .cta .store-buttons {
   justify-content: center;
 }
 
-.cta img {
-  height: 100px;
-}
-.store-buttons.small img {
-  height: 40px;
-}
 
-.store-buttons.large img {
-  height: 60px;
-}
+/* =========================================================
+   11. FLOATING BUTTON
+========================================================= */
 
 .floating-btn {
   position: fixed;
-  bottom: 25px;
+
   right: 25px;
+  bottom: 25px;
 
   padding: 14px 20px;
+
   border-radius: 50px;
 
-  background: linear-gradient(135deg, #7c3aed, #ec4899);
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #ec4899
+    );
+
   color: #fff;
 
   font-size: 14px;
   font-weight: 500;
+
   text-decoration: none;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.2);
 
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
   z-index: 1000;
 }
 
-/* Hover effect */
 .floating-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3);
 }
+
+
+/* =========================================================
+   12. FOOTER
+========================================================= */
+
 .footer {
   padding: 20px 40px;
+
   background: #f5f5f7;
 }
 
 .footer-content {
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  justify-content: center;
+
   gap: 10%;
 }
 
+
 /* LEFT */
+
 .footer-left {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
 }
 
 .footer-logo {
   width: 36px;
   height: 36px;
+
   border-radius: 8px;
 }
 
 .footer-text {
-  font-weight: 600;
   font-size: 16px;
+  font-weight: 600;
 }
+
 
 /* RIGHT */
+
 .footer-right {
   font-size: 14px;
+
   color: #666;
 }
-.footer-right a{
+
+.footer-right a {
   font-size: 14px;
+
   color: #666;
-   text-decoration: none;
+
+  text-decoration: none;
 }
 
 
-/* /Mobileeee */
 /* =========================================================
-   MOBILE FIXES
-   Only affects screens 768px and below
+   13. TABLET
+   769px - 1000px
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  /* HERO */
+
+  .hero-container {
+    gap: 20px;
+  }
+
+  .hero-left h1,
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-right {
+    height: 350px;
+  }
+
+  .phone {
+    width: 170px;
+  }
+
+  .p1 {
+    left: 0;
+  }
+
+  .p2 {
+    left: 100px;
+  }
+
+  .p3 {
+    left: 200px;
+  }
+
+
+  /* WHY */
+
+  .why-grid {
+    gap: 20px;
+  }
+
+
+  /* SHOWCASE */
+
+  .slider {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+
+  .content {
+    gap: 25px;
+  }
+
+  .image {
+    flex-basis: 260px;
+
+    width: 260px;
+    height: 330px;
+  }
+
+  .image img {
+    width: 260px;
+    height: 330px;
+  }
+
+}
+
+
+/* =========================================================
+   14. MOBILE
+   768px and below
 ========================================================= */
 
 @media (max-width: 768px) {
 
-  /* =======================================================
+  /* -------------------------------------------------------
      NAVBAR
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .navbar {
-    padding: 8px 14px;
+    padding: 7px 14px;
   }
 
   .nav-left {
-    gap: 7px;
     padding-left: 0;
+
+    gap: 7px;
   }
 
   .nav-logo {
@@ -1313,54 +1229,47 @@ body {
     gap: 7px;
   }
 
-  /* Keep the store buttons compact */
-  .store-btn {
+  .navbar .store-btn {
     padding: 8px 10px;
-    gap: 6px;
 
     font-size: 12px;
+
     border-radius: 10px;
   }
 
-  .store-btn .icon {
+  .navbar .store-btn .icon {
     font-size: 15px;
   }
 
-  /*
-     Hide only the text inside navbar buttons.
-     Icons remain visible.
-  */
-  .navbar .store-btn span:last-child {
-    display: none;
-  }
 
-
-  /* =======================================================
+  /* -------------------------------------------------------
      HERO
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .hero {
-    padding: 100px 20px 60px;
+    padding:
+      100px
+      20px
+      60px;
   }
 
   .hero-container {
     display: flex;
+
     flex-direction: column;
 
-    max-width: 100%;
     gap: 35px;
 
     text-align: center;
   }
 
-
-  /* Hero text */
-
   .hero-left {
     width: 100%;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
   }
 
@@ -1368,34 +1277,31 @@ body {
     width: 72px;
     height: 72px;
 
-    border-radius: 14px;
-
     margin-bottom: 20px;
   }
 
-  .hero-title,
-  .hero-left h1 {
-    font-size: 36px;
-    line-height: 1.15;
+  .hero-left h1,
+  .hero-title {
+    max-width: 520px;
 
     margin-bottom: 16px;
 
-    max-width: 500px;
+    font-size: 36px;
+
+    line-height: 1.15;
   }
 
   .hero-left p {
-    max-width: 420px;
+    max-width: 430px;
 
     margin-bottom: 25px;
 
     font-size: 15px;
+
     line-height: 1.6;
 
     text-align: center;
   }
-
-
-  /* Hero app buttons */
 
   .hero-left .store-buttons {
     justify-content: center;
@@ -1405,34 +1311,20 @@ body {
     gap: 10px;
   }
 
-  .hero-left .store-buttons .store-btn {
-    padding: 10px 14px;
-
-    font-size: 13px;
-  }
-
-
-  /* Hero phone animation */
-
   .hero-right {
     width: 100%;
 
     height: 280px;
 
-    margin-top: 5px;
+    margin-top: 0;
   }
 
   .phone {
     width: 125px;
   }
 
-  /*
-     Keep the stacked-phone effect,
-     just bring the phones closer together.
-  */
-
   .p1 {
-    left: calc(50% - 150px);
+    left: calc(50% - 145px);
     top: 35px;
   }
 
@@ -1442,64 +1334,217 @@ body {
   }
 
   .p3 {
-    left: calc(50% + 26px);
+    left: calc(50% + 21px);
     top: 35px;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
+     WHY VISAI
+  ------------------------------------------------------- */
+
+  .why {
+    padding: 75px 20px;
+  }
+
+  .why-title {
+    margin-bottom: 40px;
+
+    font-size: 30px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    max-width: 520px;
+  }
+
+  .why-card {
+    padding: 25px;
+
+    text-align: left;
+  }
+
+
+  /* -------------------------------------------------------
+     TESTIMONIALS
+  ------------------------------------------------------- */
+
+  .testimonials {
+    padding: 75px 20px;
+  }
+
+  .testimonials h2 {
+    font-size: 30px;
+  }
+
+  .testimonials > p {
+    font-size: 14px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 520px;
+
+    margin:
+      35px
+      auto
+      0;
+
+    gap: 18px;
+  }
+
+  .card {
+    min-height: auto;
+
+    padding: 25px;
+  }
+
+
+  /* -------------------------------------------------------
+     SHOWCASE
+  ------------------------------------------------------- */
+
+  .visai-demo {
+    padding: 75px 16px;
+  }
+
+  .visai-demo h2 {
+    font-size: 30px;
+  }
+
+  .subheading {
+    margin-bottom: 35px;
+
+    font-size: 14px;
+  }
+
+  .slider {
+    min-height: 0;
+
+    padding: 35px 40px;
+
+    border-radius: 24px;
+  }
+
+  .content {
+    min-height: 570px;
+
+    flex-direction: column-reverse;
+
+    justify-content: center;
+
+    gap: 25px;
+  }
+
+  .text {
+    width: 100%;
+
+    max-width: 100%;
+
+    text-align: center;
+  }
+
+  .text::before {
+    margin-bottom: 12px;
+  }
+
+  .text h3 {
+    font-size: 24px;
+
+    letter-spacing: -0.4px;
+  }
+
+  .text p {
+    max-width: 100%;
+
+    font-size: 15px;
+  }
+
+  .image {
+    flex: none;
+
+    width: 230px;
+    height: 300px;
+  }
+
+  .image img {
+    width: 230px;
+    height: 300px;
+
+    border-radius: 24px;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+
+    font-size: 16px;
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+
+  /* -------------------------------------------------------
      CTA
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .cta {
     padding: 70px 20px;
   }
 
   .cta h2 {
-    font-size: 28px;
-    line-height: 1.25;
+    max-width: 600px;
 
-    margin-bottom: 12px;
+    margin:
+      0
+      auto
+      12px;
+
+    font-size: 28px;
   }
 
   .cta p {
     max-width: 500px;
 
-    margin: 0 auto 30px;
+    margin:
+      0
+      auto
+      30px;
 
     font-size: 15px;
+
     line-height: 1.6;
   }
 
   .cta .store-buttons {
     width: 100%;
 
-    display: flex;
     justify-content: center;
 
     gap: 10px;
   }
 
-  .cta .store-buttons img {
-    height: 40px;
-    width: auto;
-  }
 
-
-  /* =======================================================
+  /* -------------------------------------------------------
      FOOTER
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .footer {
     padding: 22px 20px;
   }
 
   .footer-content {
-    display: flex;
-
     flex-direction: column;
-
-    justify-content: center;
 
     gap: 12px;
 
@@ -1508,13 +1553,6 @@ body {
 
   .footer-left {
     justify-content: center;
-
-    gap: 8px;
-  }
-
-  .footer-logo {
-    width: 32px;
-    height: 32px;
   }
 
   .footer-text {
@@ -1530,9 +1568,9 @@ body {
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      FLOATING BUTTON
-  ======================================================= */
+  ------------------------------------------------------- */
 
   .floating-btn {
     right: 15px;
@@ -1542,11 +1580,12 @@ body {
 
     font-size: 12px;
   }
+
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   15. SMALL MOBILE
    480px and below
 ========================================================= */
 
@@ -1555,7 +1594,7 @@ body {
   /* NAVBAR */
 
   .navbar {
-    padding: 7px 12px;
+    padding: 7px 10px;
   }
 
   .nav-logo {
@@ -1572,14 +1611,17 @@ body {
   }
 
   .navbar .store-btn {
-    padding: 7px 9px;
+    padding: 7px 8px;
   }
 
 
   /* HERO */
 
   .hero {
-    padding: 90px 16px 45px;
+    padding:
+      90px
+      16px
+      45px;
   }
 
   .hero-logo {
@@ -1589,30 +1631,25 @@ body {
     margin-bottom: 18px;
   }
 
-  .hero-title,
-  .hero-left h1 {
+  .hero-left h1,
+  .hero-title {
     font-size: 31px;
+
     line-height: 1.16;
   }
 
   .hero-left p {
-    font-size: 14px;
-
     max-width: 340px;
 
-    margin-bottom: 22px;
+    font-size: 14px;
   }
 
   .hero-left .store-buttons {
     gap: 8px;
   }
 
-  .hero-left .store-buttons .store-btn {
-    padding: 9px 11px;
-  }
 
-
-  /* PHONE ANIMATION */
+  /* HERO PHONES */
 
   .hero-right {
     height: 250px;
@@ -1623,7 +1660,7 @@ body {
   }
 
   .p1 {
-    left: calc(50% - 130px);
+    left: calc(50% - 125px);
     top: 35px;
   }
 
@@ -1633,8 +1670,119 @@ body {
   }
 
   .p3 {
-    left: calc(50% + 20px);
+    left: calc(50% + 15px);
     top: 35px;
+  }
+
+
+  /* WHY */
+
+  .why {
+    padding: 65px 16px;
+  }
+
+  .why-title {
+    font-size: 27px;
+
+    margin-bottom: 32px;
+  }
+
+  .why-card {
+    padding: 23px;
+  }
+
+  .why-card h3 {
+    font-size: 17px;
+  }
+
+  .why-card p,
+  .why-card ul {
+    font-size: 14px;
+  }
+
+
+  /* TESTIMONIALS */
+
+  .testimonials {
+    padding: 65px 16px;
+  }
+
+  .testimonials h2 {
+    font-size: 27px;
+  }
+
+  .testimonials > p {
+    font-size: 14px;
+  }
+
+  .testimonial-grid {
+    margin-top: 30px;
+  }
+
+  .card {
+    padding: 23px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+
+  /* SHOWCASE */
+
+  .visai-demo {
+    padding:
+      65px
+      12px;
+  }
+
+  .visai-demo h2 {
+    font-size: 27px;
+  }
+
+  .subheading {
+    font-size: 14px;
+
+    margin-bottom: 30px;
+  }
+
+  .slider {
+    padding: 30px 32px;
+
+    border-radius: 22px;
+  }
+
+  .content {
+    min-height: 520px;
+
+    gap: 20px;
+  }
+
+  .image {
+    width: 200px;
+    height: 270px;
+  }
+
+  .image img {
+    width: 200px;
+    height: 270px;
+
+    border-radius: 22px;
+  }
+
+  .text h3 {
+    font-size: 22px;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+
+  .arrow {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
   }
 
 
@@ -1658,10 +1806,6 @@ body {
     gap: 8px;
   }
 
-  .cta .store-buttons img {
-    height: 36px;
-  }
-
 
   /* FOOTER */
 
@@ -1681,4 +1825,66 @@ body {
   .footer-right a {
     font-size: 11px;
   }
+
+  /* FLOATING BUTTON */
+
+  .floating-btn {
+    right: 12px;
+    bottom: 12px;
+
+    padding: 10px 14px;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   16. VERY SMALL PHONES
+   360px and below
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .navbar .store-btn {
+    padding: 6px 7px;
+  }
+
+  .hero-left h1,
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .phone {
+    width: 95px;
+  }
+
+  .p1 {
+    left: calc(50% - 110px);
+  }
+
+  .p2 {
+    left: calc(50% - 47px);
+  }
+
+  .p3 {
+    left: calc(50% + 16px);
+  }
+
+  .why-title,
+  .testimonials h2,
+  .visai-demo h2 {
+    font-size: 25px;
+  }
+
+  .slider {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
 }
