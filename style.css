@@ -419,7 +419,7 @@ body {
     grid-template-columns: 1fr;
   }
 }
-.showcase {
+/* .showcase {
   padding: 100px 40px;
   text-align: center;
 }
@@ -435,7 +435,7 @@ body {
 }
 
 /* SCREENS ROW */
-.screens {
+/* .screens {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -443,17 +443,17 @@ body {
 }
 
 /* IMAGES */
-.screens img {
+/* .screens img {
   width: 180px;
   border-radius: 20px;
 
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 
   transition: all 0.3s ease;
-}
+} */
 
 /* HOVER EFFECT */
-.screens img:hover {
+/* .screens img:hover {
   transform: translateY(-10px) scale(1.05);
 }
 .screens img:nth-child(2) {
@@ -462,11 +462,100 @@ body {
 
 .screens img:nth-child(4) {
   transform: translateY(20px);
-}
-@media (max-width: 768px) {
+} */
+/* @media (max-width: 768px) {
   .screens img {
     width: 140px;
   }
+} */ 
+/* SECTION */
+/* SECTION */
+.demo {
+  padding: 100px 20px;
+}
+
+.demo-title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 60px;
+}
+
+/* LAYOUT */
+.demo-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* LEFT TEXT */
+.demo-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.demo-point {
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.demo-point::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 4px;
+  border-radius: 10px;
+  background: transparent;
+  transition: 0.3s;
+}
+.demo-point.active {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transform: translateX(6px);
+}
+
+.demo-point.active::before {
+  background: linear-gradient(180deg, #7b61ff, #ff6ec7);
+}
+
+/* TEXT */
+.demo-point h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.demo-point p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* RIGHT IMAGE */
+.carousel {
+  position: relative;
+  width: 300px;
+  margin: auto;
+}
+
+.carousel img {
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s ease;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.carousel img.active {
+  opacity: 1;
+  position: relative;
 }
 
 /* MOBILE */

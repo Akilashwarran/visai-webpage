@@ -146,7 +146,7 @@
   </div> -->
 
 </section>
-<section class="showcase">
+<!-- <section class="showcase">
 
   <h2>See Visai in action</h2>
   <p class="showcase-sub">
@@ -163,6 +163,58 @@
 
   </div>
 
+</section> -->
+<section class="demo">
+
+  <h2 class="demo-title">See Visai in Action</h2>
+
+  <div class="demo-wrapper">
+
+    <!-- LEFT TEXT GRID -->
+    <div class="demo-left">
+
+      <div class="demo-point active" data-index="0">
+        <h3>Real-time Feedback</h3>
+        <p>See mistakes instantly as you type and improve faster.</p>
+      </div>
+
+      <div class="demo-point" data-index="1">
+        <h3>Track Performance</h3>
+        <p>Monitor WPM, accuracy, and typing time in real-time.</p>
+      </div>
+
+      <div class="demo-point" data-index="2">
+        <h3>Gamified Challenges</h3>
+        <p>Earn XP and complete engaging challenges.</p>
+      </div>
+
+      <div class="demo-point" data-index="3">
+        <h3>Daily Streaks</h3>
+        <p>Stay consistent and build habits with streaks.</p>
+      </div>
+
+      <div class="demo-point" data-index="4">
+        <h3>Detailed Results</h3>
+        <p>Analyze progress and improve over time.</p>
+      </div>
+
+    </div>
+
+    <!-- RIGHT CAROUSEL -->
+    <div class="demo-right">
+
+      <div class="carousel">
+        <img src="screen-6.png" class="active">
+        <img src="screen-7.png">
+        <img src="screen-8.png">
+        <img src="screen-6.png">
+        <img src="screen-7.png">
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 <section class="testimonials">
 
@@ -176,19 +228,19 @@
     <div class="card">
       <p>“Visai made Tamil typing so easy! I improved within days.”</p>
       <h4>Arun Kumar</h4>
-      <span>Tamil Learner</span>
+      <!-- <span>Tamil Learner</span> -->
     </div>
 
     <div class="card">
       <p>“Clean UI and very easy to use. Smooth experience overall.”</p>
       <h4>Priya S</h4>
-      <span>Student</span>
+      <!-- <span>Student</span> -->
     </div>
 
     <div class="card">
       <p>“Simple and effective. Great for daily practice.”</p>
       <h4>Karthik R</h4>
-      <span>Developer</span>
+      <!-- <span>Developer</span> -->
     </div>
 
   </div>
@@ -266,6 +318,35 @@
       showSlide(index);
     });
   });
+
+  // ---------------------------------
+const points = document.querySelectorAll(".demo-point");
+const images = document.querySelectorAll(".carousel img");
+
+let row = 0;
+
+function showSlide(i) {
+  points.forEach(p => p.classList.remove("active"));
+  images.forEach(img => img.classList.remove("active"));
+
+  points[i].classList.add("active");
+  images[i].classList.add("active");
+}
+
+function autoSlide() {
+  row = (row + 1) % images.length;
+  showSlide(row);
+}
+
+setInterval(autoSlide, 2000);
+
+/* Click sync */
+points.forEach(point => {
+  point.addEventListener("click", () => {
+    row = point.dataset.row;
+    showSlide(row);
+  });
+});
 </script>
 <a href="https://kothai.org/" class="floating-btn">
   Kothai
