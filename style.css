@@ -470,155 +470,506 @@ body {
 } */ 
 /* SECTION */
 /* SECTION */
+/* =========================================
+   VISAI DEMO SECTION
+========================================= */
+
 .visai-demo {
-  padding: 120px 20px;
+  padding: 100px 20px;
   text-align: center;
-  background: linear-gradient(to bottom, #fafafa, #ffffff);
+  background: linear-gradient(
+    to bottom,
+    #f8fafc 0%,
+    #ffffff 100%
+  );
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.visai-demo h2 {
+  margin: 0 0 12px;
+
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+
+  color: #111827;
 }
 
 .subheading {
-  max-width: 640px;
-  margin: 12px auto 60px;
-  font-size: 16px;
-  color: #666;
+  max-width: 620px;
+
+  margin: 0 auto 55px;
+
+  font-size: 15px;
   line-height: 1.6;
+
+  color: #667085;
 }
 
-/* SLIDER BOX */
+
+/* =========================================
+   SLIDER CONTAINER
+========================================= */
+
 .slider {
   position: relative;
-  max-width: 1100px;
-  margin: auto;
-  height: 480px; /* 👈 reduce height */
-  padding: 40px;
 
-  border-radius: 24px;
- 
+  width: 100%;
+  max-width: 1000px;
+  min-height: 420px;
 
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(10px);
+  margin: 0 auto;
+  padding: 35px 70px;
 
-  box-shadow: 
-    0 20px 60px rgba(0,0,0,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.6);
-}
-.content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 80px;
+
+  border-radius: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(15, 23, 42, 0.06);
+
+  box-shadow:
+    0 35px 80px rgba(15, 23, 42, 0.08),
+    0 10px 30px rgba(15, 23, 42, 0.04);
+
+  overflow: hidden;
 }
 
-.content.reverse {
-  flex-direction: row-reverse;
+
+/* =========================================
+   SLIDES
+========================================= */
+
+.slides {
+  width: 100%;
+  height: 100%;
 }
 
-/* IMAGE */
-.image img {
-  width: 240px;
-  border-radius: 24px;
-
-  box-shadow: 
-    0 25px 60px rgba(0,0,0,0.15),
-    0 8px 20px rgba(0,0,0,0.08);
-
-  transition: transform 0.4s ease;
-}
-
-.slide.active .image img {
-  transform: scale(1.03);
-}
-
-/* TEXT */
-.text {
-  max-width: 420px;
-  text-align: left;
-}
-
-.text h3 {
-  font-size: 26px;
-  margin-bottom: 12px;
-}
-
-.text p {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-}
 .slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.6s ease;
+  display: none;
+
+  width: 100%;
+  height: 100%;
 }
 
 .slide.active {
-  opacity: 1;
-  transform: translateY(0);
-  position: relative;
+  display: block;
 }
+
+
+/* =========================================
+   SLIDE CONTENT
+========================================= */
+
+.content {
+  width: 100%;
+  min-height: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 45px;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.text {
+  flex: 1;
+
+  max-width: 500px;
+
+  text-align: left;
+}
+
+
+/* VISAI label */
+
+.text::before {
+  content: "VISAI";
+
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 1.6px;
+
+  color: #7c3aed;
+}
+
+
+/* Heading */
+
+.text h3 {
+  margin: 0 0 16px;
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -0.7px;
+
+  color: #111827;
+}
+
+
+/* Description */
+
+.text p {
+  margin: 0;
+
+  max-width: 450px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #667085;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.image {
+  flex: 0 0 300px;
+
+  width: 300px;
+  height: 360px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* No extra background/card */
+  background: transparent;
+
+  box-shadow: none;
+}
+
+
+/* Actual screenshot */
+
+.image img {
+  display: block;
+
+  width: 300px;
+  height: 360px;
+  
+  object-fit: contain;
+
+  border-radius: 28px;
+
+  filter:
+    drop-shadow(0 20px 30px rgba(15, 23, 42, 0.12));
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+
+/* Slight floating effect */
+
+.slide.active .image img {
+  transform: translateY(-4px);
+}
+
+.slide.active .image:hover img {
+  transform: translateY(-8px) scale(1.015);
+
+  filter:
+    drop-shadow(0 25px 35px rgba(15, 23, 42, 0.16));
+}
+
+
+/* =========================================
+   ARROWS
+========================================= */
+
 .arrow {
   position: absolute;
+
   top: 50%;
+
+  width: 44px;
+  height: 44px;
+
   transform: translateY(-50%);
-
-  width: 48px;
-  height: 48px;
-
-  border-radius: 50%;
-  border: none;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 22px;
+  padding: 0;
+
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  background: rgba(255, 255, 255, 0.96);
+
+  color: #111827;
+
+  font-size: 18px;
+  line-height: 1;
+
   cursor: pointer;
 
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(6px);
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.10);
 
-  box-shadow: 
-    0 8px 20px rgba(0,0,0,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.6);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 
-  transition: all 0.25s ease;
   z-index: 10;
 }
 
-/* POSITION */
+
+/* Left arrow */
+
 .arrow.left {
-  left: -20px;
+  left: 18px;
 }
+
+
+/* Right arrow */
 
 .arrow.right {
-  right: -20px;
+  right: 18px;
 }
 
-/* HOVER EFFECT */
+
+/* Hover */
+
 .arrow:hover {
   transform: translateY(-50%) scale(1.08);
-  box-shadow: 
-    0 12px 30px rgba(0,0,0,0.18);
+
+  background: #111827;
+  color: #ffffff;
+
+  box-shadow:
+    0 12px 25px rgba(15, 23, 42, 0.18);
 }
 
-/* CLICK FEEDBACK */
+
+/* Click */
+
 .arrow:active {
-  transform: translateY(-50%) scale(0.95);
-}
-.arrow::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(123,97,255,0.25), transparent 70%);
-  opacity: 0;
-  transition: 0.3s;
+  transform: translateY(-50%) scale(0.94);
 }
 
-.arrow:hover::after {
-  opacity: 1;
+
+/* =========================================
+   OPTIONAL SLIDE FADE
+========================================= */
+
+.slide {
+  animation: slideFade 0.45s ease;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .slider {
+    padding: 35px 55px;
+  }
+
+  .content {
+    gap: 25px;
+  }
+
+  .image {
+    flex: 0 0 260px;
+
+    width: 260px;
+    height: 330px;
+  }
+
+  .image img {
+    width: 260px;
+    height: 330px;
+  }
+
+  .text h3 {
+    font-size: 27px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .visai-demo {
+    padding: 70px 16px;
+  }
+
+
+  .visai-demo h2 {
+    font-size: 28px;
+  }
+
+
+  .subheading {
+    margin-bottom: 35px;
+
+    font-size: 14px;
+  }
+
+
+  .slider {
+    min-height: 650px;
+
+    padding: 35px 35px;
+
+    border-radius: 24px;
+  }
+
+
+  .content {
+    min-height: 580px;
+
+    flex-direction: column-reverse;
+
+    justify-content: center;
+
+    gap: 25px;
+  }
+
+
+  .text {
+    width: 100%;
+
+    max-width: 100%;
+
+    text-align: center;
+  }
+
+
+  .text::before {
+    margin-bottom: 12px;
+  }
+
+
+  .text h3 {
+    font-size: 24px;
+
+    letter-spacing: -0.4px;
+  }
+
+
+  .text p {
+    max-width: 100%;
+
+    font-size: 15px;
+  }
+
+
+  .image {
+    flex: none;
+    
+    width: 230px;
+    height: 300px;
+  }
+
+
+  .image img {
+    width: 230px;
+    height: 300px;
+    border-radius: 20px;
+  }
+
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+
+    font-size: 16px;
+  }
+
+
+  .arrow.left {
+    left: 10px;
+  }
+
+
+  .arrow.right {
+    right: 10px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+  .slider {
+    padding: 30px 30px;
+  }
+
+
+  .content {
+    gap: 20px;
+  }
+
+
+  .image {
+    width: 200px;
+    height: 270px;
+  }
+
+
+  .image img {
+    width: 200px;
+    height: 270px;
+  }
+
+
+  .text h3 {
+    font-size: 22px;
+  }
+
+
+  .text p {
+    font-size: 14px;
+  }
 }
 /* MOBILE */
 @media (max-width: 900px) {
