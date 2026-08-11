@@ -65,14 +65,14 @@
       </div>
 
       <div class="hero-stats">
-        <div class="hero-stat">
+        <!-- <div class="hero-stat">
           <span class="hero-stat-num">50K+</span>
           <span class="hero-stat-label">Players</span>
-        </div>
-        <div class="hero-stat">
+        </div> -->
+        <!-- <div class="hero-stat">
           <span class="hero-stat-num">1M+</span>
           <span class="hero-stat-label">Words Typed</span>
-        </div>
+        </div> -->
         <div class="hero-stat">
           <span class="hero-stat-num">4.8&#9733;</span>
           <span class="hero-stat-label">App Rating</span>
@@ -117,77 +117,6 @@
     </div>
 
   </div>
-</section>
-
-<section class="journey">
-
-  <span class="section-eyebrow center">THE JOURNEY</span>
-  <h2 class="journey-title">Your Path to Mastery</h2>
-  <p class="subheading">
-    From your first sign-up to your longest streak &mdash;
-    here&rsquo;s how a Visai player levels up.
-  </p>
-
-  <div class="roadmap">
-
-    <div class="roadmap-line"></div>
-
-    <div class="roadmap-step left">
-      <div class="roadmap-content">
-        <span class="stage-tag">STAGE 01</span>
-        <h3>Create Your Player</h3>
-        <p>Sign up in seconds and set up your profile to start tracking progress.</p>
-      </div>
-      <div class="roadmap-node"><span>1</span></div>
-    </div>
-
-    <div class="roadmap-step right">
-      <div class="roadmap-content">
-        <span class="stage-tag">STAGE 02</span>
-        <h3>Quick Onboarding</h3>
-        <p>A fast walkthrough gets you comfortable with the Tamil keyboard before you dive in.</p>
-      </div>
-      <div class="roadmap-node"><span>2</span></div>
-    </div>
-
-    <div class="roadmap-step left">
-      <div class="roadmap-content">
-        <span class="stage-tag">STAGE 03</span>
-        <h3>Daily Challenge</h3>
-        <p>A fresh typing challenge unlocks every day, ready the moment you open the app.</p>
-      </div>
-      <div class="roadmap-node"><span>3</span></div>
-    </div>
-
-    <div class="roadmap-step right">
-      <div class="roadmap-content">
-        <span class="stage-tag">STAGE 04</span>
-        <h3>Real-Time Practice</h3>
-        <p>Type and get instant feedback &mdash; correct letters turn green, mistakes turn red.</p>
-      </div>
-      <div class="roadmap-node"><span>4</span></div>
-    </div>
-
-    <div class="roadmap-step left">
-      <div class="roadmap-content">
-        <span class="stage-tag">STAGE 05</span>
-        <h3>Scorecard & XP</h3>
-        <p>Finish a paragraph and see your results &mdash; XP earned, accuracy, and speed.</p>
-      </div>
-      <div class="roadmap-node"><span>5</span></div>
-    </div>
-
-    <div class="roadmap-step right final">
-      <div class="roadmap-content">
-        <span class="stage-tag">STAGE 06</span>
-        <h3>Keep the Streak Alive</h3>
-        <p>Come back tomorrow, complete the next challenge, and watch your streak grow.</p>
-      </div>
-      <div class="roadmap-node"><span>&#128293;</span></div>
-    </div>
-
-  </div>
-
 </section>
 
 <section class="why">
@@ -552,38 +481,6 @@
     }, { threshold: 0.4 });
 
     observer.observe(fill);
-  })();
-
-  // ---------------------------------
-  // ROADMAP STEP POP-IN ON SCROLL
-  // ---------------------------------
-  (function () {
-    const steps = document.querySelectorAll(".roadmap-step");
-    const line = document.querySelector(".roadmap-line");
-    if (!steps.length) return;
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.35 });
-
-    steps.forEach((step) => observer.observe(step));
-
-    if (line) {
-      const lineObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            line.classList.add("in-view");
-            lineObserver.unobserve(line);
-          }
-        });
-      }, { threshold: 0.1 });
-      lineObserver.observe(line);
-    }
   })();
 
   // ---------------------------------
