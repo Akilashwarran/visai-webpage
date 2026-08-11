@@ -1,0 +1,1890 @@
+/* =========================================================
+   VISAI LANDING PAGE
+   Clean responsive CSS
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to right, #f3e8ff, #ffffff);
+  color: #111;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   2. NAVBAR
+========================================================= */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 6px 20px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  z-index: 1000;
+
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.navbar.show {
+  transform: translateY(0);
+}
+
+
+/* LEFT */
+
+.nav-left {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding-left: 20px;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+
+  object-fit: contain;
+
+  border-radius: 8px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+
+  background: linear-gradient(
+    135deg,
+    #7b61ff,
+    #ff6ec7
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* RIGHT */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+}
+
+
+/* =========================================================
+   3. STORE BUTTONS
+========================================================= */
+
+.store-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition: transform 0.2s ease,
+              background 0.2s ease;
+}
+
+.store-btn .icon {
+  font-size: 16px;
+}
+
+
+/* GOOGLE */
+
+.store-btn.google {
+  background: #000;
+  color: #fff;
+}
+
+.store-btn.google:hover {
+  transform: translateY(-2px);
+}
+
+
+/* APPLE */
+
+.store-btn.apple {
+  border: 1px solid #ddd;
+  background: #fff;
+
+  color: #111;
+}
+
+.store-btn.apple:hover {
+  background: #f8f8f8;
+}
+
+
+/* STORE IMAGE SIZES */
+
+.store-buttons img {
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+}
+
+.store-buttons.small img {
+  height: 40px;
+}
+
+.store-buttons.large img {
+  height: 60px;
+}
+
+
+/* =========================================================
+   4. HERO
+========================================================= */
+
+.hero {
+  position: relative;
+
+  padding: 120px 40px;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 40px;
+}
+
+
+/* HERO LEFT */
+
+.hero-left {
+  min-width: 0;
+}
+
+.hero-logo {
+  width: 90px;
+  height: 90px;
+
+  object-fit: cover;
+
+  margin-bottom: 25px;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-logo:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+
+.hero-left h1,
+.hero-title {
+  margin-bottom: 20px;
+
+  font-size: 48px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+
+  color: #1f2937;
+}
+
+.hero-title span,
+.hero-left h1 span {
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #ec4899
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.hero-left p {
+  max-width: 450px;
+
+  margin-bottom: 30px;
+
+  color: #555;
+
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-left .store-buttons {
+  justify-content: flex-start;
+}
+
+
+/* =========================================================
+   5. HERO PHONE ANIMATION
+========================================================= */
+
+.hero-right {
+  position: relative;
+
+  width: 100%;
+  height: 400px;
+}
+
+.phone {
+  position: absolute;
+
+  width: 200px;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* PHONE POSITIONS */
+
+.p1 {
+  left: 0;
+  top: 50px;
+
+  animation:
+    float 4s ease-in-out infinite;
+}
+
+.p2 {
+  left: 120px;
+  top: 0;
+
+  z-index: 2;
+
+  animation:
+    float 5s ease-in-out infinite;
+}
+
+.p3 {
+  left: 240px;
+  top: 60px;
+
+  animation:
+    float 6s ease-in-out infinite;
+}
+
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   6. FEATURES
+========================================================= */
+
+.features {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 100px 40px;
+}
+
+.features h2 {
+  margin-bottom: 60px;
+
+  text-align: center;
+
+  font-size: 32px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+
+  gap: 40px;
+
+  margin-bottom: 80px;
+}
+
+.feature.reverse {
+  flex-direction: row-reverse;
+}
+
+.feature img {
+  width: 220px;
+
+  border-radius: 20px;
+}
+
+
+/* =========================================================
+   7. WHY VISAI
+========================================================= */
+
+.why {
+  padding: 100px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7f6ff,
+      #ffffff
+    );
+
+  text-align: center;
+}
+
+.why-title {
+  margin-bottom: 60px;
+
+  font-size: 34px;
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+/* GRID */
+
+.why-grid {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+}
+
+
+/* CARD */
+
+.why-card {
+  position: relative;
+
+  padding: 30px;
+
+  border:
+    1px solid rgba(0, 0, 0, 0.05);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  text-align: left;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ICON */
+
+.why-card .icon {
+  margin-bottom: 12px;
+
+  font-size: 28px;
+}
+
+
+/* TEXT */
+
+.why-card h3 {
+  margin-bottom: 10px;
+
+  font-size: 18px;
+}
+
+.why-card p {
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.why-card ul {
+  padding-left: 18px;
+
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* HIGHLIGHT */
+
+.why-card.highlight {
+  background:
+    linear-gradient(
+      135deg,
+      #7b61ff,
+      #ff6ec7
+    );
+
+  color: #fff;
+}
+
+.why-card.highlight p,
+.why-card.highlight ul {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* =========================================================
+   8. TESTIMONIALS
+========================================================= */
+
+.testimonials {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+
+  padding: 100px 20px;
+
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 10px;
+
+  font-size: 36px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
+
+  color: #111827;
+}
+
+.testimonials > p {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  color: #667085;
+}
+
+
+/* GRID */
+
+.testimonial-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  margin-top: 50px;
+}
+
+
+/* CARD */
+
+.card {
+  position: relative;
+
+  min-height: 150px;
+
+  padding: 28px;
+
+  text-align: left;
+
+  background: #fff;
+
+  border:
+    1px solid rgba(15, 23, 42, 0.06);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.06),
+    0 5px 15px rgba(15, 23, 42, 0.03);
+}
+
+.card p {
+  margin-bottom: 22px;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  color: #374151;
+}
+
+.card::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 10px;
+  right: 20px;
+
+  font-size: 46px;
+
+  line-height: 1;
+
+  color: #ede9fe;
+
+  pointer-events: none;
+}
+
+.card h4 {
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #111827;
+}
+
+.card span {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 13px;
+
+  color: #667085;
+}
+
+
+/* =========================================================
+   9. VISAI SHOWCASE
+========================================================= */
+
+.visai-demo {
+  padding: 100px 20px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #f8fafc 0%,
+      #ffffff 100%
+    );
+}
+
+.visai-demo h2 {
+  margin-bottom: 12px;
+
+  font-size: 36px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.8px;
+
+  color: #111827;
+}
+
+.subheading {
+  max-width: 620px;
+
+  margin: 0 auto 55px;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+  color: #667085;
+}
+
+
+/* SLIDER */
+
+.slider {
+  position: relative;
+
+  width: 100%;
+  max-width: 1000px;
+
+  min-height: 420px;
+
+  margin: 0 auto;
+
+  padding: 35px 70px;
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 28px;
+
+  background: #fff;
+
+  border:
+    1px solid rgba(15, 23, 42, 0.06);
+
+  box-shadow:
+    0 35px 80px rgba(15, 23, 42, 0.08),
+    0 10px 30px rgba(15, 23, 42, 0.04);
+
+  overflow: hidden;
+}
+
+
+/* SLIDES */
+
+.slides {
+  width: 100%;
+}
+
+.slide {
+  display: none;
+
+  width: 100%;
+}
+
+.slide.active {
+  display: block;
+}
+
+
+/* SLIDE CONTENT */
+
+.content {
+  width: 100%;
+
+  min-height: 350px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 45px;
+}
+
+
+/* TEXT */
+
+.text {
+  flex: 1;
+
+  max-width: 500px;
+
+  text-align: left;
+}
+
+.text::before {
+  content: "VISAI";
+
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1.6px;
+
+  color: #7c3aed;
+}
+
+.text h3 {
+  margin-bottom: 16px;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: -0.7px;
+
+  color: #111827;
+}
+
+.text p {
+  max-width: 450px;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #667085;
+}
+
+
+/* IMAGE */
+
+.image {
+  flex: 0 0 300px;
+
+  width: 300px;
+  height: 360px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+
+  border-radius: 20px;
+}
+
+.image img {
+  display: block;
+
+  width: 300px;
+  height: 360px;
+
+  object-fit: contain;
+
+  border-radius: 28px;
+
+  filter:
+    drop-shadow(
+      0 20px 30px rgba(15, 23, 42, 0.12)
+    );
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.slide.active .image img {
+  transform: translateY(-4px);
+}
+
+.slide.active .image:hover img {
+  transform:
+    translateY(-8px)
+    scale(1.015);
+
+  filter:
+    drop-shadow(
+      0 25px 35px rgba(15, 23, 42, 0.16)
+    );
+}
+
+
+/* ARROWS */
+
+.arrow {
+  position: absolute;
+
+  top: 50%;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  transform: translateY(-50%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border:
+    1px solid rgba(15, 23, 42, 0.08);
+
+  background: rgba(255, 255, 255, 0.96);
+
+  color: #111827;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.10);
+
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 18px;
+}
+
+.arrow.right {
+  right: 18px;
+}
+
+.arrow:hover {
+  transform:
+    translateY(-50%)
+    scale(1.08);
+
+  background: #111827;
+
+  color: #fff;
+}
+
+.arrow:active {
+  transform:
+    translateY(-50%)
+    scale(0.94);
+}
+
+
+/* SLIDE ANIMATION */
+
+.slide {
+  animation: slideFade 0.45s ease;
+}
+
+@keyframes slideFade {
+
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   10. CTA
+========================================================= */
+
+.cta {
+  padding: 100px 40px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #ec4899
+    );
+
+  color: #fff;
+}
+
+.cta h2 {
+  margin-bottom: 10px;
+
+  font-size: 34px;
+
+  line-height: 1.25;
+}
+
+.cta p {
+  max-width: 650px;
+
+  margin: 0 auto 40px;
+
+  line-height: 1.6;
+
+  opacity: 0.9;
+}
+
+.cta .store-buttons {
+  justify-content: center;
+}
+
+
+/* =========================================================
+   11. FLOATING BUTTON
+========================================================= */
+
+.floating-btn {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  padding: 14px 20px;
+
+  border-radius: 50px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #ec4899
+    );
+
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.2);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  z-index: 1000;
+}
+
+.floating-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   12. FOOTER
+========================================================= */
+
+.footer {
+  padding: 20px 40px;
+
+  background: #f5f5f7;
+}
+
+.footer-content {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10%;
+}
+
+
+/* LEFT */
+
+.footer-left {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 8px;
+}
+
+.footer-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+/* RIGHT */
+
+.footer-right {
+  font-size: 14px;
+
+  color: #666;
+}
+
+.footer-right a {
+  font-size: 14px;
+
+  color: #666;
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   13. TABLET
+   769px - 1000px
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  /* HERO */
+
+  .hero-container {
+    gap: 20px;
+  }
+
+  .hero-left h1,
+  .hero-title {
+    font-size: 42px;
+  }
+
+  .hero-right {
+    height: 350px;
+  }
+
+  .phone {
+    width: 170px;
+  }
+
+  .p1 {
+    left: 0;
+  }
+
+  .p2 {
+    left: 100px;
+  }
+
+  .p3 {
+    left: 200px;
+  }
+
+
+  /* WHY */
+
+  .why-grid {
+    gap: 20px;
+  }
+
+
+  /* SHOWCASE */
+
+  .slider {
+    padding-left: 55px;
+    padding-right: 55px;
+  }
+
+  .content {
+    gap: 25px;
+  }
+
+  .image {
+    flex-basis: 260px;
+
+    width: 260px;
+    height: 330px;
+  }
+
+  .image img {
+    width: 260px;
+    height: 330px;
+  }
+
+}
+
+
+/* =========================================================
+   14. MOBILE
+   768px and below
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* -------------------------------------------------------
+     NAVBAR
+  ------------------------------------------------------- */
+
+  .navbar {
+    padding: 7px 14px;
+  }
+
+  .nav-left {
+    padding-left: 0;
+
+    gap: 7px;
+  }
+
+  .nav-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .nav-right {
+    gap: 7px;
+  }
+
+  .navbar .store-btn {
+    padding: 8px 10px;
+
+    font-size: 12px;
+
+    border-radius: 10px;
+  }
+
+  .navbar .store-btn .icon {
+    font-size: 15px;
+  }
+
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .hero {
+    padding:
+      100px
+      20px
+      60px;
+  }
+
+  .hero-container {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 35px;
+
+    text-align: center;
+  }
+
+  .hero-left {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .hero-logo {
+    width: 72px;
+    height: 72px;
+
+    margin-bottom: 20px;
+  }
+
+  .hero-left h1,
+  .hero-title {
+    max-width: 520px;
+
+    margin-bottom: 16px;
+
+    font-size: 36px;
+
+    line-height: 1.15;
+  }
+
+  .hero-left p {
+    max-width: 430px;
+
+    margin-bottom: 25px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    text-align: center;
+  }
+
+  .hero-left .store-buttons {
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 10px;
+  }
+
+  .hero-right {
+    width: 100%;
+
+    height: 280px;
+
+    margin-top: 0;
+  }
+
+  .phone {
+    width: 125px;
+  }
+
+  .p1 {
+    left: calc(50% - 145px);
+    top: 35px;
+  }
+
+  .p2 {
+    left: calc(50% - 62px);
+    top: 0;
+  }
+
+  .p3 {
+    left: calc(50% + 21px);
+    top: 35px;
+  }
+
+
+  /* -------------------------------------------------------
+     WHY VISAI
+  ------------------------------------------------------- */
+
+  .why {
+    padding: 75px 20px;
+  }
+
+  .why-title {
+    margin-bottom: 40px;
+
+    font-size: 30px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    max-width: 520px;
+  }
+
+  .why-card {
+    padding: 25px;
+
+    text-align: left;
+  }
+
+
+  /* -------------------------------------------------------
+     TESTIMONIALS
+  ------------------------------------------------------- */
+
+  .testimonials {
+    padding: 75px 20px;
+  }
+
+  .testimonials h2 {
+    font-size: 30px;
+  }
+
+  .testimonials > p {
+    font-size: 14px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 520px;
+
+    margin:
+      35px
+      auto
+      0;
+
+    gap: 18px;
+  }
+
+  .card {
+    min-height: auto;
+
+    padding: 25px;
+  }
+
+
+  /* -------------------------------------------------------
+     SHOWCASE
+  ------------------------------------------------------- */
+
+  .visai-demo {
+    padding: 75px 16px;
+  }
+
+  .visai-demo h2 {
+    font-size: 30px;
+  }
+
+  .subheading {
+    margin-bottom: 35px;
+
+    font-size: 14px;
+  }
+
+  .slider {
+    min-height: 0;
+
+    padding: 35px 40px;
+
+    border-radius: 24px;
+  }
+
+  .content {
+    min-height: 570px;
+
+    flex-direction: column-reverse;
+
+    justify-content: center;
+
+    gap: 25px;
+  }
+
+  .text {
+    width: 100%;
+
+    max-width: 100%;
+
+    text-align: center;
+  }
+
+  .text::before {
+    margin-bottom: 12px;
+  }
+
+  .text h3 {
+    font-size: 24px;
+
+    letter-spacing: -0.4px;
+  }
+
+  .text p {
+    max-width: 100%;
+
+    font-size: 15px;
+  }
+
+  .image {
+    flex: none;
+
+    width: 230px;
+    height: 300px;
+  }
+
+  .image img {
+    width: 230px;
+    height: 300px;
+
+    border-radius: 24px;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+
+    font-size: 16px;
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     CTA
+  ------------------------------------------------------- */
+
+  .cta {
+    padding: 70px 20px;
+  }
+
+  .cta h2 {
+    max-width: 600px;
+
+    margin:
+      0
+      auto
+      12px;
+
+    font-size: 28px;
+  }
+
+  .cta p {
+    max-width: 500px;
+
+    margin:
+      0
+      auto
+      30px;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+  }
+
+  .cta .store-buttons {
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     FOOTER
+  ------------------------------------------------------- */
+
+  .footer {
+    padding: 22px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+
+    gap: 12px;
+
+    text-align: center;
+  }
+
+  .footer-left {
+    justify-content: center;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+
+  .footer-right {
+    font-size: 12px;
+  }
+
+  .footer-right a {
+    font-size: 12px;
+  }
+
+
+  /* -------------------------------------------------------
+     FLOATING BUTTON
+  ------------------------------------------------------- */
+
+  .floating-btn {
+    right: 15px;
+    bottom: 15px;
+
+    padding: 11px 16px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   15. SMALL MOBILE
+   480px and below
+========================================================= */
+
+@media (max-width: 480px) {
+
+  /* NAVBAR */
+
+  .navbar {
+    padding: 7px 10px;
+  }
+
+  .nav-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-text {
+    font-size: 17px;
+  }
+
+  .nav-right {
+    gap: 5px;
+  }
+
+  .navbar .store-btn {
+    padding: 7px 8px;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    padding:
+      90px
+      16px
+      45px;
+  }
+
+  .hero-logo {
+    width: 66px;
+    height: 66px;
+
+    margin-bottom: 18px;
+  }
+
+  .hero-left h1,
+  .hero-title {
+    font-size: 31px;
+
+    line-height: 1.16;
+  }
+
+  .hero-left p {
+    max-width: 340px;
+
+    font-size: 14px;
+  }
+
+  .hero-left .store-buttons {
+    gap: 8px;
+  }
+
+
+  /* HERO PHONES */
+
+  .hero-right {
+    height: 250px;
+  }
+
+  .phone {
+    width: 110px;
+  }
+
+  .p1 {
+    left: calc(50% - 125px);
+    top: 35px;
+  }
+
+  .p2 {
+    left: calc(50% - 55px);
+    top: 0;
+  }
+
+  .p3 {
+    left: calc(50% + 15px);
+    top: 35px;
+  }
+
+
+  /* WHY */
+
+  .why {
+    padding: 65px 16px;
+  }
+
+  .why-title {
+    font-size: 27px;
+
+    margin-bottom: 32px;
+  }
+
+  .why-card {
+    padding: 23px;
+  }
+
+  .why-card h3 {
+    font-size: 17px;
+  }
+
+  .why-card p,
+  .why-card ul {
+    font-size: 14px;
+  }
+
+
+  /* TESTIMONIALS */
+
+  .testimonials {
+    padding: 65px 16px;
+  }
+
+  .testimonials h2 {
+    font-size: 27px;
+  }
+
+  .testimonials > p {
+    font-size: 14px;
+  }
+
+  .testimonial-grid {
+    margin-top: 30px;
+  }
+
+  .card {
+    padding: 23px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+
+  /* SHOWCASE */
+
+  .visai-demo {
+    padding:
+      65px
+      12px;
+  }
+
+  .visai-demo h2 {
+    font-size: 27px;
+  }
+
+  .subheading {
+    font-size: 14px;
+
+    margin-bottom: 30px;
+  }
+
+  .slider {
+    padding: 30px 32px;
+
+    border-radius: 22px;
+  }
+
+  .content {
+    min-height: 520px;
+
+    gap: 20px;
+  }
+
+  .image {
+    width: 200px;
+    height: 270px;
+  }
+
+  .image img {
+    width: 200px;
+    height: 270px;
+
+    border-radius: 22px;
+  }
+
+  .text h3 {
+    font-size: 22px;
+  }
+
+  .text p {
+    font-size: 14px;
+  }
+
+  .arrow {
+    width: 38px;
+    height: 38px;
+
+    font-size: 15px;
+  }
+
+
+  /* CTA */
+
+  .cta {
+    padding: 60px 18px;
+  }
+
+  .cta h2 {
+    font-size: 25px;
+  }
+
+  .cta p {
+    font-size: 14px;
+
+    margin-bottom: 25px;
+  }
+
+  .cta .store-buttons {
+    gap: 8px;
+  }
+
+
+  /* FOOTER */
+
+  .footer {
+    padding: 20px 16px;
+  }
+
+  .footer-content {
+    gap: 10px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+  }
+
+  .footer-right,
+  .footer-right a {
+    font-size: 11px;
+  }
+
+  /* FLOATING BUTTON */
+
+  .floating-btn {
+    right: 12px;
+    bottom: 12px;
+
+    padding: 10px 14px;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   16. VERY SMALL PHONES
+   360px and below
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .navbar .store-btn {
+    padding: 6px 7px;
+  }
+
+  .hero-left h1,
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .phone {
+    width: 95px;
+  }
+
+  .p1 {
+    left: calc(50% - 110px);
+  }
+
+  .p2 {
+    left: calc(50% - 47px);
+  }
+
+  .p3 {
+    left: calc(50% + 16px);
+  }
+
+  .why-title,
+  .testimonials h2,
+  .visai-demo h2 {
+    font-size: 25px;
+  }
+
+  .slider {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+}
