@@ -220,13 +220,13 @@ h1, h2, h3 {
 
 .store-buttons img {
   width: auto;
-  height: auto;
+  height: 400px;
 
-  object-fit: contain;
+  /* object-fit: contain; */
 
-  border-radius: 12px;
+  /* border-radius: 12px; */
 
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35));
+  /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.35)); */
 }
 
 .store-buttons.small img {
@@ -1219,7 +1219,9 @@ h1, h2, h3 {
 
   text-align: left;
 }
-
+.text .card-head{
+color: var(--gold);
+}
 .stage-tag {
   display: block;
 
