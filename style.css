@@ -84,7 +84,8 @@ h1, h2, h3 {
 .section-eyebrow {
   display: inline-block;
 
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  
 
   font-family: var(--font-mono);
   font-size: 12px;
@@ -334,18 +335,18 @@ h1, h2, h3 {
 }
 
 .hero-logo {
-  width: 84px;
-  height: 84px;
+  width: 160px;
+  height: 160px;
 
   object-fit: cover;
 
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 
-  border-radius: 18px;
+  /* border-radius: 18px; */
 
-  box-shadow:
+  /* box-shadow:
     0 0 0 3px rgba(245, 185, 66, 0.35),
-    0 15px 30px rgba(0, 0, 0, 0.45);
+    0 15px 30px rgba(0, 0, 0, 0.45); */
 
   transition:
     transform 0.3s ease,
@@ -919,43 +920,6 @@ h1, h2, h3 {
   background: var(--bg-deep-2);
 
   text-align: center;
-}
-.why::before{
-   content: "";
-
-  position: absolute;
-
-  top: -140px;
-  right: -160px;
-
-  width: 480px;
-  height: 480px;
-
-  background-image: url('bg-pattern.png');
-  background-repeat: repeat;
-  background-position: top right;
-  
-
-  /* transform: rotate(-18deg); */
-  transform-origin: top right;
-
-  opacity: 0.09;
- /* Fade the edges radially */
-  -webkit-mask-image: radial-gradient(
-    circle,
-    black 20%,
-    rgba(0, 0, 0, 0.8) 45%,
-    transparent 75%
-  );
-  mask-image: radial-gradient(
-    circle,
-    black 20%,
-    rgba(0, 0, 0, 0.8) 45%,
-    transparent 75%
-  );
-  pointer-events: none;
-
-  z-index: 0;
 }
 
 .why-title {
@@ -1890,8 +1854,8 @@ color: var(--gold);
   }
 
   .hero-logo {
-    width: 68px;
-    height: 68px;
+    width: 120px;
+    height: 120px;
 
     margin-bottom: 18px;
   }
@@ -2321,8 +2285,8 @@ color: var(--gold);
   }
 
   .nav-logo {
-    width: 32px;
-    height: 32px;
+    width: 22px;
+    height: 22px;
   }
 
   .logo-text {
@@ -2337,8 +2301,8 @@ color: var(--gold);
   }
 
   .hero-logo {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 
     margin-bottom: 16px;
   }
